@@ -81,11 +81,43 @@ class Rook(Piece):
 
 
 class Queen(Piece):
-    pass
+    def possible_moves(self):
+        
+        row, col = self.position
+        moves = [
+            (row + 1, col + 1), (row + 1, col - 1),
+            (row - 1, col + 1), (row - 1, col - 1),
+            (row + 1), (col + 1), (row - 1), (col - 1)
+        ]
+        # Filtruje tahy, které jsou mimo šachovnici
+        return [(r, c) for r, c in moves if 0 < r <= 8 and 0 < c <= 8]
+    
+    @property
+    def symbol(self):
+        return '♛' if self.color == "black" else '♕'
+
+    def __str__(self):
+        return f'Queen({self.symbol}) at position {self.position}'
 
 
 class King(Piece):
-    pass
+     def possible_moves(self):
+        
+        row, col = self.position
+        moves = [
+            (row + 1, col + 1), (row + 1, col - 1),
+            (row - 1, col + 1), (row - 1, col - 1),
+            (row + 1), (col + 1), (row - 1), (col - 1)
+        ]
+        # Filtruje tahy, které jsou mimo šachovnici
+        return [(r, c) for r, c in moves if 0 < r <= 8 and 0 < c <= 8]
+    
+    @property
+    def symbol(self):
+        return '♚' if self.color == "black" else '♔'
+
+    def __str__(self):
+        return f'King({self.symbol}) at position {self.position}'
 
 
 if __name__ == "__main__":
