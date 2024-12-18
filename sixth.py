@@ -25,5 +25,4 @@ if __name__ == "__main__":
     except IndexError:
         print("Chyba: Nezadali jste URL jako argument.")
     except Exception as e:
-        # Chyba při volání funkce
         print(f"Program skončil chybou: {e}")
