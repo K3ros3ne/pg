@@ -8,7 +8,7 @@ def download_url_and_get_all_hrefs(url):
     try:
         response = requests.get(url)
         if response.status_code != 200:
-            print(f"Chyba: Stránka není dostupná, status kód: {response.status_code}")
+            print(f"Stránka není dostupná")
             return hrefs
         soup = BeautifulSoup(response.content, 'html.parser')
         for anchor in soup.find_all('a', href=True):
